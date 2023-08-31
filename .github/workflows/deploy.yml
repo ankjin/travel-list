@@ -19,16 +19,13 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: +Get Code
-        uses: actions/checkout@v3
-      - name: +Install Node.js 
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          node-version: 18
-          #cache: 'npm'
-      - name: +Install dependencies
-        run: npm ci
-      - name: +Build project
-        run: npm run build --if-present
-      - name: +Deploying to mock echo
-        run: echo "Deploying ..."
+          server: 162.250.126.211
+          user: git-action-user
+          password: GitActions@01
+          local_dir: "./ghactions"
+          delete: "false"
