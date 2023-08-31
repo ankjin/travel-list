@@ -19,13 +19,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
-      # Here is the deployment action
-      - name: Upload from public_html via FTP
-        uses: airvzxf/ftp-deployment-action@latest
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+      
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: 162.250.126.211
-          user: git-action-user
+          username: git-action-user
           password: GitActions@01
-          local_dir: "./ghactions"
-          delete: "false"
+          local-dir: ./build
+          server-dir: ./ghactions/
