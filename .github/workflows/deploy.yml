@@ -16,6 +16,6 @@ jobs:
       with:
         server: 162.250.126.211
         username: git-action-user
-        password: GitActions@01
+        password: ""
         local-dir: ./build/
         server-dir: ./
