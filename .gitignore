@@ -24,4 +24,3 @@ yarn-error.log*
 
 # yaml
 deploy-shared-host.yml
-deploy-echo.yml
